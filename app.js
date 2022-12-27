@@ -30,10 +30,14 @@ function getPlayerChoice(event) {
 function play(event) {
   getPlayerChoice(event)
   console.log(playerChoice)
+  getComputerChoice()
+  console.log("computer picks", compChoice)
+  compare()
+  render()
 }
 
 function getComputerChoice() {
-  const randomIndex = Math.floor(Math.random() * (choices.length - 1))
+  const randomIndex = Math.floor(Math.random() * choices.length)
   compChoice = choices[randomIndex]
 }
 
@@ -49,5 +53,9 @@ function compare() {
   } else {
     msg = "You lose! Try again?"
   }
+}
+
+function render() {
+  result.innerText = `you chose ${playerChoice} and the computer chose ${compChoice}. ${msg}`
 }
 
