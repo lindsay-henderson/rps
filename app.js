@@ -14,10 +14,20 @@ const result = document.getElementById("result-display")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-document.getElementById("lapis").addEventListener("click", play)
-document.getElementById("papyrus").addEventListener("click", play)
-document.getElementById("scalpellus").addEventListener("click", play)
-
-
-
+document.querySelectorAll("button").forEach(function(button) {
+  button.addEventListener("click", play)
+})
 /*-------------------------------- Functions --------------------------------*/
+
+function play(event) {
+  console.log(event.target)
+}
+
+function getPlayerChoice(event) {
+  playerChoice = event.target.id
+}
+
+function play(event) {
+  getPlayerChoice(event)
+  console.log(playerChoice)
+}
